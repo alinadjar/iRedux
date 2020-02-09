@@ -41,7 +41,6 @@ class App extends Component {
       <Provider store={storeRedux}>
         <div>
           <h1>Main App Screen</h1>
-          <ListUsrs />
         </div>
       </Provider>
     );
