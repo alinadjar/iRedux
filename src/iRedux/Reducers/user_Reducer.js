@@ -6,7 +6,7 @@ export default function (state = initialData_users, action) {
         case GET_SINGLE_USER:
             return {
                 ...state,
-                data: state.data.filter(r => r.id === Number(action.payload))
+                [state.user.data]: state.users.data.filter(r => r.id === Number(action.payload)) || {}
             }
         case GET_ALL_USERS:
             return state.users;

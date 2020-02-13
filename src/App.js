@@ -28,20 +28,40 @@ import React, { Component } from 'react';
 
 import storeRedux from './iRedux';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
 
-import ListUsrs from './Components/ListUsrs';
+import ListUsers from './Components/ListUsrs';
+import TodoPage from './Components/TodoPage';
+
+
+import './Components/CSS/spinner.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {}
   }
+
   render() {
     return (
       <Provider store={storeRedux}>
-        <div>
-          <h1>Main App Screen</h1>
-        </div>
+        <Router>
+          <Link to='/' className='btn btn-primary'> Home </Link>
+          <Link to='/todo' className='btn btn-primary'> go to link </Link>
+
+          <Switch>
+            <Route path='/' component={ListUsers} exact={true} />
+            <Route path='/todo' component={TodoPage} />
+            <Redirect to='/' />
+          </Switch>
+
+          {
+            true &&
+            <div style={{ position: 'absolute', left: 0, top: 0, backgroundColor: 'rgba(160, 186, 207, 0.37)', width: '100%', height: '100%' }} className='spinner'>
+            </div>
+          }
+
+        </Router>
       </Provider>
     );
   }
