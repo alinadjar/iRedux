@@ -55,15 +55,19 @@ class Todo extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.todos.slice(0, 7).map((todo, index) => (
-                            <tr key={todo.id}>
-                                <td>{index + 1}</td>
-                                <td>{todo.title}</td>
-                                <td><input type='checkbox' checked={todo.completed} /></td>
-                                <td><button className='btn btn-primary' onClick={() => this.Edit(todo)}>EDIT</button></td>
-                                <td><button className='btn btn-danger' onClick={() => this.Delete(todo)}>DELETE</button></td>
-                            </tr>
-                        ))}
+                        {                            
+                            this.props.todos.length > 4 ?
+                                this.props.todos.slice(0, 7).map((todo, index) => 
+                                    <tr key={todo.id}>
+                                        <td>{index + 1}</td>
+                                        <td>{todo.title}</td>
+                                        <td><input type='checkbox' checked={todo.completed} /></td>
+                                        <td><button className='btn btn-primary' onClick={() => this.Edit(todo)}>EDIT</button></td>
+                                        <td><button className='btn btn-danger' onClick={() => this.Delete(todo)}>DELETE</button></td>
+                                    </tr>
+                                )
+                                : null
+                        }
                     </tbody>
                 </table>
             </div>
@@ -174,7 +178,7 @@ class Todo extends Component {
                             <div>
                                 <h2>Raw Modal </h2>
                             </div>
-                            <button type="button" className="btn btn-secondary" onClick={this.closeModal} data-dismiss="modal">Close</button>   
+                            <button type="button" className="btn btn-secondary" onClick={this.closeModal} data-dismiss="modal">Close</button>
                         </MODAL>
                     );
             }
@@ -242,4 +246,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(Todo);
             //   POST 	/posts
             //   PUT 	/posts/1
             //   PATCH 	/posts/1
-            //   DELETE 	/posts/1
+            //   DELETE /posts/1

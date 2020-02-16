@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+
+import '../Components/CSS/spinner.css';
+
 class Spinner extends Component {
     constructor(props) {
         super(props);
@@ -9,7 +12,7 @@ class Spinner extends Component {
 
 
     componentDidMount() {
-        console.log(this.props.LOADING);
+        console.log('LOADING = '+this.props.LOADING);
     }
 
     render() {
@@ -28,7 +31,7 @@ class Spinner extends Component {
 
 
 const mapStateToProps = state => ({
-    LOADING: state.todoR.loading
+    LOADING: state.commonR.loading
 })
 
 export default connect(mapStateToProps)(Spinner);

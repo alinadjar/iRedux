@@ -37,7 +37,7 @@ import PostPage from './Components/PostPage';
 import Spinner from './Components/Spinner';
 
 
-import './Components/CSS/spinner.css';
+
 
 
 class App extends Component {

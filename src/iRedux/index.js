@@ -5,6 +5,7 @@ import reduxPromise from 'redux-promise';
 import userReducer from './Reducers/user_Reducer';
 import todoReducer from './Reducers/todo_Reducer';
 import postReducer from './Reducers/post_Reducer';
+import commonReducer from './Reducers/common_Reducer';
 
 
 //-----------------------Middlewares 
@@ -19,7 +20,8 @@ const middleware = [
 const rootReducer = combineReducers({
     userR: userReducer,
     todoR: todoReducer,
-    postR: postReducer
+    postR: postReducer,
+    commonR: commonReducer
 });
 
 

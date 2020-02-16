@@ -40,10 +40,9 @@ class Post extends Component {
                         </tr>
                     </thead>
                     <tbody>
-
                         {
                             //this.props.posts.length !== 0 ?
-                            // this.props.posts ?
+                             this.props.posts ?
                                 this.props.posts.map((p, index) =>
                                     <tr key={index}>
                                         <td>{index + 1}</td>
@@ -52,7 +51,7 @@ class Post extends Component {
                                         <td>{p.title}</td>
                                         <td>{p.body}</td>
                                     </tr>)
-                                // : null
+                                 : null
                         }
 
 
