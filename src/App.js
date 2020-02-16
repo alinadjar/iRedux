@@ -30,11 +30,15 @@ import storeRedux from './iRedux';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
 
+
 import ListUsers from './Components/ListUsrs';
 import TodoPage from './Components/TodoPage';
+import PostPage from './Components/PostPage';
+import Spinner from './Components/Spinner';
 
 
 import './Components/CSS/spinner.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -47,24 +51,27 @@ class App extends Component {
       <Provider store={storeRedux}>
         <Router>
           <Link to='/' className='btn btn-primary'> Home </Link>
-          <Link to='/todo' className='btn btn-primary'> go to link </Link>
+          <Link to='/todo' className='btn btn-primary'> go /todo </Link>
+          <Link to='/posts' className='btn btn-primary'> go /posts </Link>
 
           <Switch>
             <Route path='/' component={ListUsers} exact={true} />
             <Route path='/todo' component={TodoPage} />
+            <Route path='/posts' component={PostPage} />
             <Redirect to='/' />
           </Switch>
 
-          {
-            true &&
-            <div style={{ position: 'absolute', left: 0, top: 0, backgroundColor: 'rgba(160, 186, 207, 0.37)', width: '100%', height: '100%' }} className='spinner'>
-            </div>
-          }
+
+          <Spinner />
+
 
         </Router>
       </Provider>
     );
   }
 }
+
+
+
 
 export default App;

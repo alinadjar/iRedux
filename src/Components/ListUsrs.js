@@ -32,7 +32,7 @@ class ListUsers extends Component {
                                 <td> {u.email} </td>
                                 <td> {u.first_name} </td>
                                 <td> {u.last_name} </td>
-                                <td> <img src={u.avatar} /> </td>
+                                <td> <img src={u.avatar} alt='samle pic' /> </td>
                             </tr>
                         )}
                     </tbody>

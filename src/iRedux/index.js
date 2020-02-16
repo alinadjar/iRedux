@@ -4,13 +4,25 @@ import reduxPromise from 'redux-promise';
 
 import userReducer from './Reducers/user_Reducer';
 import todoReducer from './Reducers/todo_Reducer';
+import postReducer from './Reducers/post_Reducer';
+
+
+//-----------------------Middlewares 
+import { RestMiddleware4Post } from '../webService/RestMiddleware';
+const middleware = [
+    reduxThunk, 
+    reduxPromise, 
+    RestMiddleware4Post('https://jsonplaceholder.typicode.com/posts')
+];
+
 
 const rootReducer = combineReducers({
     userR: userReducer,
-    todoR: todoReducer
+    todoR: todoReducer,
+    postR: postReducer
 });
 
-const middleware = [reduxThunk, reduxPromise];
+
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

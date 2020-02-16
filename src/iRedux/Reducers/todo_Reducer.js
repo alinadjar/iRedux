@@ -46,7 +46,8 @@ export default function (state = initialState, action) {
         case FETCH_TODOS:
             return {
                 ...state,
-                todos: action.payload.list,
+                todos: action.payload,
+                //todos: action.payload.list,
                 loading: false,
                 error: null
             }
